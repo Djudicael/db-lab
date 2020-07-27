@@ -1,0 +1,17 @@
+# v2 syntax
+version: '2'
+
+services:
+  arangodb:
+    container_name: arangodb
+    image: arangodb/arangodb:latest
+    environment:
+      - ARANGO_ROOT_PASSWORD=YourRootPassword
+    volumes:
+      - ./.docker/arangodb/database:/var/lib/arangodb
+      - ./.docker/arangodb/apps:/var/lib/arangodb-apps
+    ports:
+      - "8529:8529"
+    #restart: always
+    #healthcheck:
+      #  test: curl -f my-system:8529/_api/version || exit 1
