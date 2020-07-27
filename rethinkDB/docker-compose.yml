@@ -1,7 +1,9 @@
-boot-rethink:
+version: '3'
+services:
+  rethink:
     image: rethinkdb
     volumes:
-      - ${PWD}/data:/data
+      - ./.docker/rethinkdb/data:/data
     ports:
       - 8080:8080
       - 28015:28015
